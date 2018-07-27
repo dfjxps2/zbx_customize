@@ -1425,9 +1425,11 @@ class CUser extends CApiService {
 					break;
 
 				case ZBX_AUTH_INTERNAL:
-//					if (md5($user['password']) !== $db_user['passwd']) {
-//						self::exception(ZBX_API_ERROR_PARAMETERS, _('Login name or password is incorrect.'));
-//					}
+				    if (!defined(PHPCAS_VERSION)) {
+                        if (md5($user['password']) !== $db_user['passwd']) {
+                            self::exception(ZBX_API_ERROR_PARAMETERS, _('Login name or password is incorrect.'));
+                        }
+                    }
 					break;
 			}
 		}
