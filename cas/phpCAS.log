@@ -1,0 +1,262 @@
+AF49 .START (2018-07-27 23:45:56) phpCAS-1.3.5 ****************** [CAS.php:468]
+AF49 .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+AF49 .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+AF49 .|    |    Starting a new session 5pojv4t0s020g9p854unt9ngjd [Client.php:932]
+AF49 .|    |    Session is not authenticated [Client.php:938]
+AF49 .|    <= ''
+AF49 .<= ''
+AF49 .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+AF49 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+AF49 .<= ''
+AF49 .=> phpCAS::forceAuthentication() [index2.php:33]
+AF49 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+AF49 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+AF49 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+AF49 .|    |    |    |    no user found [Client.php:1635]
+AF49 .|    |    |    <= false
+AF49 .|    |    |    no ticket found [Client.php:1494]
+AF49 .|    |    <= false
+AF49 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1289]
+AF49 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1656]
+AF49 .|    |    |    |    => CAS_Client::getURL() [Client.php:342]
+AF49 .|    |    |    |    |    Final URI: http://localhost/index2.php [Client.php:3548]
+AF49 .|    |    |    |    <= 'http://localhost/index2.php'
+AF49 .|    |    |    <= 'https://127.0.0.1:8443/cas/login?service=http%3A%2F%2Flocalhost%2Findex2.php'
+AF49 .|    |    |    Redirect to : https://127.0.0.1:8443/cas/login?service=http%3A%2F%2Flocalhost%2Findex2.php [Client.php:1663]
+AF49 .|    |    |    exit()
+AF49 .|    |    |    -
+AF49 .|    |    -
+AF49 .|    -
+082F .START (2018-07-27 23:46:18) phpCAS-1.3.5 ****************** [CAS.php:468]
+082F .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+082F .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+082F .|    |    Starting a new session 5pojv4t0s020g9p854unt9ngjd [Client.php:932]
+082F .|    |    Session is not authenticated [Client.php:938]
+082F .|    |    Ticket 'ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M' found [Client.php:1020]
+082F .|    <= ''
+082F .<= ''
+082F .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+082F .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+082F .<= ''
+082F .=> phpCAS::forceAuthentication() [index2.php:33]
+082F .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+082F .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+082F .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+082F .|    |    |    |    no user found [Client.php:1635]
+082F .|    |    |    <= false
+082F .|    |    |    CAS 2.0 ticket `ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M' is present [Client.php:1446]
+082F .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL, false) [Client.php:1449]
+082F .|    |    |    |     [Client.php:3169]
+082F .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:3176]
+082F .|    |    |    |    |    => CAS_Client::getURL() [Client.php:453]
+082F .|    |    |    |    |    |    Final URI: http://localhost/index2.php [Client.php:3548]
+082F .|    |    |    |    |    <= 'http://localhost/index2.php'
+082F .|    |    |    |    <= 'https://127.0.0.1:8443/cas/serviceValidate?service=http%3A%2F%2Flocalhost%2Findex2.php'
+082F .|    |    |    |    => CAS_Client::_readURL('https://127.0.0.1:8443/cas/serviceValidate?service=http%3A%2F%2Flocalhost%2Findex2.php&ticket=ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M', NULL, NULL, NULL) [Client.php:3191]
+082F .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:242]
+082F .|    |    |    |    |    |    Response Body: 
+082F .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+082F .|    |    |    |    |    |        <cas:authenticationSuccess>
+082F .|    |    |    |    |    |            <cas:user>admin</cas:user>
+082F .|    |    |    |    |    |            </cas:authenticationSuccess>
+082F .|    |    |    |    |    |    </cas:serviceResponse>
+082F .|    |    |    |    |    |    
+082F .|    |    |    |    |    |     [CurlRequest.php:84]
+082F .|    |    |    |    |    <= true
+082F .|    |    |    |    <= true
+082F .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:3261]
+082F .|    |    |    |    |    Testing for rubycas style attributes [Client.php:3376]
+082F .|    |    |    |    <= ''
+082F .|    |    |    |    Storing Proxy List [Client.php:3270]
+082F .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:3273]
+082F .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+082F .|    |    |    |    <= true
+082F .|    |    |    |    => CAS_Client::_renameSession('ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M') [Client.php:3293]
+082F .|    |    |    |    |    Killing session: 5pojv4t0s020g9p854unt9ngjd [Client.php:3682]
+082F .|    |    |    |    |    Starting session: ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M [Client.php:3686]
+082F .|    |    |    |    |    Restoring old session vars [Client.php:3689]
+082F .|    |    |    |    <= ''
+082F .|    |    |    <= true
+082F .|    |    |    CAS 2.0 ticket `ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M' was validated [Client.php:1452]
+082F .|    |    |    => CAS_Client::getURL() [Client.php:1518]
+082F .|    |    |    <= 'http://localhost/index2.php'
+082F .|    |    |    Prepare redirect to : http://localhost/index2.php [Client.php:1518]
+082F .|    |    |    => CAS_Client::getURL() [Client.php:1520]
+082F .|    |    |    <= 'http://localhost/index2.php'
+082F .|    |    |    exit()
+082F .|    |    |    -
+082F .|    |    -
+082F .|    -
+1C3E .START (2018-07-27 23:46:27) phpCAS-1.3.5 ****************** [CAS.php:468]
+1C3E .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+1C3E .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+1C3E .|    |    Starting a new session ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M [Client.php:932]
+1C3E .|    |    Session is authenticated as: admin [Client.php:936]
+1C3E .|    <= ''
+1C3E .<= ''
+1C3E .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+1C3E .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+1C3E .<= ''
+1C3E .=> phpCAS::forceAuthentication() [index2.php:33]
+1C3E .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+1C3E .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+1C3E .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+1C3E .|    |    |    |    user = `admin' [Client.php:1622]
+1C3E .|    |    |    <= true
+1C3E .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1416]
+1C3E .|    |    <= true
+1C3E .|    |    no need to authenticate [Client.php:1282]
+1C3E .|    <= true
+1C3E .<= ''
+0FA6 .START (2018-07-27 23:49:28) phpCAS-1.3.5 ****************** [CAS.php:468]
+0FA6 .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+0FA6 .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+0FA6 .|    |    Starting a new session ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M [Client.php:932]
+0FA6 .|    |    Session is authenticated as: admin [Client.php:936]
+0FA6 .|    <= ''
+0FA6 .<= ''
+0FA6 .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+0FA6 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+0FA6 .<= ''
+0FA6 .=> phpCAS::forceAuthentication() [index2.php:33]
+0FA6 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+0FA6 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+0FA6 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+0FA6 .|    |    |    |    user = `admin' [Client.php:1622]
+0FA6 .|    |    |    <= true
+0FA6 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1416]
+0FA6 .|    |    <= true
+0FA6 .|    |    no need to authenticate [Client.php:1282]
+0FA6 .|    <= true
+0FA6 .<= ''
+26F9 .START (2018-07-27 23:54:39) phpCAS-1.3.5 ****************** [CAS.php:468]
+26F9 .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+26F9 .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+26F9 .|    |    Starting a new session ST-6-exwOSaA8xoTYRwRWnnCaFKDNF84-DESKTOP-4EH0T8M [Client.php:932]
+26F9 .|    |    Session is authenticated as: admin [Client.php:936]
+26F9 .|    <= ''
+26F9 .<= ''
+26F9 .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+26F9 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+26F9 .<= ''
+26F9 .=> phpCAS::forceAuthentication() [index2.php:33]
+26F9 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+26F9 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+26F9 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+26F9 .|    |    |    |    user = `admin' [Client.php:1622]
+26F9 .|    |    |    <= true
+26F9 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1416]
+26F9 .|    |    <= true
+26F9 .|    |    no need to authenticate [Client.php:1282]
+26F9 .|    <= true
+26F9 .<= ''
+D272 .START (2018-07-27 23:59:00) phpCAS-1.3.5 ****************** [CAS.php:468]
+D272 .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+D272 .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+D272 .|    |    Starting a new session t05ldpvkr34rfe9fp5h350j57p [Client.php:932]
+D272 .|    |    Session is not authenticated [Client.php:938]
+D272 .|    <= ''
+D272 .<= ''
+D272 .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+D272 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+D272 .<= ''
+D272 .=> phpCAS::forceAuthentication() [index2.php:33]
+D272 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+D272 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+D272 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+D272 .|    |    |    |    no user found [Client.php:1635]
+D272 .|    |    |    <= false
+D272 .|    |    |    no ticket found [Client.php:1494]
+D272 .|    |    <= false
+D272 .|    |    => CAS_Client::redirectToCas(false) [Client.php:1289]
+D272 .|    |    |    => CAS_Client::getServerLoginURL(false, false) [Client.php:1656]
+D272 .|    |    |    |    => CAS_Client::getURL() [Client.php:342]
+D272 .|    |    |    |    |    Final URI: http://localhost/index2.php [Client.php:3548]
+D272 .|    |    |    |    <= 'http://localhost/index2.php'
+D272 .|    |    |    <= 'https://127.0.0.1:8443/cas/login?service=http%3A%2F%2Flocalhost%2Findex2.php'
+D272 .|    |    |    Redirect to : https://127.0.0.1:8443/cas/login?service=http%3A%2F%2Flocalhost%2Findex2.php [Client.php:1663]
+D272 .|    |    |    exit()
+D272 .|    |    |    -
+D272 .|    |    -
+D272 .|    -
+2D94 .START (2018-07-27 23:59:08) phpCAS-1.3.5 ****************** [CAS.php:468]
+2D94 .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+2D94 .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+2D94 .|    |    Starting a new session t05ldpvkr34rfe9fp5h350j57p [Client.php:932]
+2D94 .|    |    Session is not authenticated [Client.php:938]
+2D94 .|    |    Ticket 'ST-7-blCBLrsoMg1i2-IE6LmuPojGBX4-DESKTOP-4EH0T8M' found [Client.php:1020]
+2D94 .|    <= ''
+2D94 .<= ''
+2D94 .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+2D94 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+2D94 .<= ''
+2D94 .=> phpCAS::forceAuthentication() [index2.php:33]
+2D94 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+2D94 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+2D94 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+2D94 .|    |    |    |    no user found [Client.php:1635]
+2D94 .|    |    |    <= false
+2D94 .|    |    |    CAS 2.0 ticket `ST-7-blCBLrsoMg1i2-IE6LmuPojGBX4-DESKTOP-4EH0T8M' is present [Client.php:1446]
+2D94 .|    |    |    => CAS_Client::validateCAS20('', NULL, NULL, false) [Client.php:1449]
+2D94 .|    |    |    |     [Client.php:3169]
+2D94 .|    |    |    |    => CAS_Client::getServerServiceValidateURL() [Client.php:3176]
+2D94 .|    |    |    |    |    => CAS_Client::getURL() [Client.php:453]
+2D94 .|    |    |    |    |    |    Final URI: http://localhost/index2.php [Client.php:3548]
+2D94 .|    |    |    |    |    <= 'http://localhost/index2.php'
+2D94 .|    |    |    |    <= 'https://127.0.0.1:8443/cas/serviceValidate?service=http%3A%2F%2Flocalhost%2Findex2.php'
+2D94 .|    |    |    |    => CAS_Client::_readURL('https://127.0.0.1:8443/cas/serviceValidate?service=http%3A%2F%2Flocalhost%2Findex2.php&ticket=ST-7-blCBLrsoMg1i2-IE6LmuPojGBX4-DESKTOP-4EH0T8M', NULL, NULL, NULL) [Client.php:3191]
+2D94 .|    |    |    |    |    => CAS_Request_CurlRequest::sendRequest() [AbstractRequest.php:242]
+2D94 .|    |    |    |    |    |    Response Body: 
+2D94 .|    |    |    |    |    |    <cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+2D94 .|    |    |    |    |    |        <cas:authenticationSuccess>
+2D94 .|    |    |    |    |    |            <cas:user>admin</cas:user>
+2D94 .|    |    |    |    |    |            </cas:authenticationSuccess>
+2D94 .|    |    |    |    |    |    </cas:serviceResponse>
+2D94 .|    |    |    |    |    |    
+2D94 .|    |    |    |    |    |     [CurlRequest.php:84]
+2D94 .|    |    |    |    |    <= true
+2D94 .|    |    |    |    <= true
+2D94 .|    |    |    |    => CAS_Client::_readExtraAttributesCas20(DOMNodeList) [Client.php:3261]
+2D94 .|    |    |    |    |    Testing for rubycas style attributes [Client.php:3376]
+2D94 .|    |    |    |    <= ''
+2D94 .|    |    |    |    Storing Proxy List [Client.php:3270]
+2D94 .|    |    |    |    => CAS_ProxyChain_AllowedList::isProxyListAllowed(array ()) [Client.php:3273]
+2D94 .|    |    |    |    |    No proxies were found in the response [AllowedList.php:81]
+2D94 .|    |    |    |    <= true
+2D94 .|    |    |    |    => CAS_Client::_renameSession('ST-7-blCBLrsoMg1i2-IE6LmuPojGBX4-DESKTOP-4EH0T8M') [Client.php:3293]
+2D94 .|    |    |    |    |    Killing session: t05ldpvkr34rfe9fp5h350j57p [Client.php:3682]
+2D94 .|    |    |    |    |    Starting session: ST-7-blCBLrsoMg1i2-IE6LmuPojGBX4-DESKTOP-4EH0T8M [Client.php:3686]
+2D94 .|    |    |    |    |    Restoring old session vars [Client.php:3689]
+2D94 .|    |    |    |    <= ''
+2D94 .|    |    |    <= true
+2D94 .|    |    |    CAS 2.0 ticket `ST-7-blCBLrsoMg1i2-IE6LmuPojGBX4-DESKTOP-4EH0T8M' was validated [Client.php:1452]
+2D94 .|    |    |    => CAS_Client::getURL() [Client.php:1518]
+2D94 .|    |    |    <= 'http://localhost/index2.php'
+2D94 .|    |    |    Prepare redirect to : http://localhost/index2.php [Client.php:1518]
+2D94 .|    |    |    => CAS_Client::getURL() [Client.php:1520]
+2D94 .|    |    |    <= 'http://localhost/index2.php'
+2D94 .|    |    |    exit()
+2D94 .|    |    |    -
+2D94 .|    |    -
+2D94 .|    -
+EE90 .START (2018-07-27 23:59:09) phpCAS-1.3.5 ****************** [CAS.php:468]
+EE90 .=> phpCAS::client('2.0', '127.0.0.1', 8443, '/cas') [index2.php:21]
+EE90 .|    => CAS_Client::__construct('2.0', false, '127.0.0.1', 8443, '/cas', true) [CAS.php:359]
+EE90 .|    |    Starting a new session ST-7-blCBLrsoMg1i2-IE6LmuPojGBX4-DESKTOP-4EH0T8M [Client.php:932]
+EE90 .|    |    Session is authenticated as: admin [Client.php:936]
+EE90 .|    <= ''
+EE90 .<= ''
+EE90 .=> phpCAS::setNoCasServerValidation() [index2.php:30]
+EE90 .|    You have configured no validation of the legitimacy of the cas server. This is not recommended for production use. [CAS.php:1644]
+EE90 .<= ''
+EE90 .=> phpCAS::forceAuthentication() [index2.php:33]
+EE90 .|    => CAS_Client::forceAuthentication() [CAS.php:1098]
+EE90 .|    |    => CAS_Client::isAuthenticated() [Client.php:1280]
+EE90 .|    |    |    => CAS_Client::_wasPreviouslyAuthenticated() [Client.php:1393]
+EE90 .|    |    |    |    user = `admin' [Client.php:1622]
+EE90 .|    |    |    <= true
+EE90 .|    |    |    user was already authenticated, no need to look for tickets [Client.php:1416]
+EE90 .|    |    <= true
+EE90 .|    |    no need to authenticate [Client.php:1282]
+EE90 .|    <= true
+EE90 .<= ''
