@@ -78,9 +78,52 @@ $userName = phpCAS::getUser();
 if ($userName == "admin")
     $userName = "Admin";
 
+$db_users = DB::select('users', [
+    'output' => ['userid', 'alias', 'name', 'surname', 'url', 'autologin', 'autologout', 'lang', 'refresh',
+        'type', 'theme', 'attempt_failed', 'attempt_ip', 'attempt_clock', 'rows_per_page', 'passwd'
+    ],
+    'filter' => ['alias' => $userName]
+]);
+
+if (!$db_users) {
+    DBstart();
+    $loginSuccess = CWebUser::login("Admin", "");
+    DBend(true);
+    API::getWrapper()->auth = CWebUser::getSessionCookie();
+
+    // Try to add new user.
+    $user = [
+        'alias' => $userName,
+        'name' => "",
+        'surname' => "",
+        'url' => "",
+        'autologin' => 0,
+        'autologout' => "0",
+        'theme' => "default",
+        'refresh' => "30s",
+        'rows_per_page' => "50",
+        'user_medias' => [],
+        'usrgrps' => zbx_toObject(["8"], 'usrgrpid'),
+        'passwd' => "12345",
+        'lang' => "en_GB",
+        'type' => "1"
+    ];
+
+    DBstart();
+    $result = (bool)API::User()->create($user);
+    DBend(true);
+
+    if (!$result) {
+        CWebUser::logout();
+        $urlElements = parse_url($_SERVER['REQUEST_URI']);
+        phpCAS::logoutWithRedirectService("http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . $urlElements['path']);
+    }
+}
+
 DBstart();
 $loginSuccess = CWebUser::login($userName, "");
 DBend(true);
+API::getWrapper()->auth = CWebUser::getSessionCookie();
 
 if ($loginSuccess) {
     // save remember login preference
