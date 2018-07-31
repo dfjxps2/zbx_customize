@@ -29,8 +29,10 @@ phpCAS::client(CAS_VERSION_2_0, $cas_host, $cas_port, $cas_context);
 // VALIDATING THE CAS SERVER IS CRUCIAL TO THE SECURITY OF THE CAS PROTOCOL!
 phpCAS::setNoCasServerValidation();
 
+if (!isset($_REQUEST['reconnect'])) {
 // force CAS authentication
-phpCAS::forceAuthentication();
+    phpCAS::forceAuthentication();
+}
 
 require_once dirname(__FILE__) . '/include/classes/user/CWebUser.php';
 CWebUser::disableSessionCookie();
@@ -113,17 +115,18 @@ if (!$db_users) {
     $result = (bool)API::User()->create($user);
     DBend(true);
 
+    CWebUser::logout();
+
     if (!$result) {
-        CWebUser::logout();
-        $urlElements = parse_url($_SERVER['REQUEST_URI']);
-        phpCAS::logoutWithRedirectService("http://" . $_SERVER['SERVER_NAME'] . ":" . $_SERVER['SERVER_PORT'] . $urlElements['path']);
+        CWebUser::checkAuthentication(null);
+        redirect(zbx_empty(CWebUser::$data['url']) ? ZBX_DEFAULT_URL : CWebUser::$data['url']);
+        exit;
     }
 }
 
 DBstart();
 $loginSuccess = CWebUser::login($userName, "");
 DBend(true);
-API::getWrapper()->auth = CWebUser::getSessionCookie();
 
 if ($loginSuccess) {
     // save remember login preference
@@ -151,9 +154,12 @@ if ($loginSuccess) {
     } else {
         $url = ZBX_DEFAULT_URL;
     }
+
+    redirect($url);
+
 } else {
-    // login the user from the session, if the session id is empty - login as a guest
-    CWebUser::checkAuthentication(CWebUser::getSessionCookie());
+    CWebUser::logout();
+    CWebUser::checkAuthentication(null);
+    redirect(zbx_empty(CWebUser::$data['url']) ? ZBX_DEFAULT_URL : CWebUser::$data['url']);
 }
 
-redirect($url);
