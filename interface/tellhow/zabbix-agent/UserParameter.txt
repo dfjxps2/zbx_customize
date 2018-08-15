@@ -1,0 +1,4 @@
+UserParameter=<key>,<python脚本> <script要执行脚本>
+如：
+UserParameter=dep.discovery,/usr/local/env/bin/python DepDiscovery.py
+UserParameter=dep.[*],/usr/local/env/bin/python DepMonitor $1
