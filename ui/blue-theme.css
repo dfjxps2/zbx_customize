@@ -218,7 +218,8 @@ nav a:link, .nav a:link, nav a:visited, .nav a:visited, nav a:hover, .nav a:hove
         /*菜单三角的颜色*/
         border-bottom: 9px solid #ffffff; }
       .top-nav li.selected a, .top-nav .calendar li.selected:hover a, .calendar .top-nav li.selected:hover a, .top-nav li.selected a:hover {
-        color: #fff; }
+        color: #fff;
+        background-color:#00307c;}
   .top-nav a {
     padding: 20px 30px;
     color: #fff;
@@ -326,11 +327,13 @@ ul.top-nav-icons {
 
 .top-subnav-container {
   height: 30px;
-  line-height: 30px;
+  line-height: 46px;
   /*菜单栏背景颜色*/
   background-color: #ffffff;
-  position: relative;
-  padding: 0 10px; }
+  position: absolute;
+  z-index: 12;
+  left: 300px;
+  display:none;}
 
 .top-subnav {
   /*菜单栏背景颜色*/
@@ -340,9 +343,13 @@ ul.top-nav-icons {
   /*新加标记1*/
   color: #333333;}
   .top-subnav li {
-    display: block;
+/*    display: block;
     float: left;
-    padding: 0 10px; }
+    padding: 0 10px;*/
+    float: none;
+    width: 100px;
+    text-align: center;
+    background-color: #fff;}
     .top-subnav li:last-child {
       -webkit-box-shadow: 25px 0 10px -10px #ffffff;
       -moz-box-shadow: 25px 0 10px -10px #ffffff;
@@ -494,10 +501,10 @@ footer, .footer {
 
 .logo {
   position: relative;
-  top: -6px;
+  top: -4px;
   float: left;
   display: block;
-  width: 130px;
+  width: 132px;
   height: 35px;
   background: url(../img/jiankong.png); }
 
@@ -2626,9 +2633,13 @@ button[disabled], button[disabled]:hover, button[disabled]:active {
 
 .yellow, a.yellow {
   color: #e99003; }
-
+/*
+原来的灰色 #768d99
+*/
 .grey, a.grey {
-  color: #768d99; }
+  color: #333;
+  font-family: "微软雅黑";
+  font-size: 14px; }
 
 .blue, a.blue {
   color: #1e87e3; }
