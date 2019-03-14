@@ -24,7 +24,7 @@ $phpcas_path = '../../source/';
 ///////////////////////////////////////
 
 // Full Hostname of your CAS Server
-$cas_host = '127.0.0.1';
+$cas_host = '10.1.3.193';
 
 // Context of the CAS Server
 $cas_context = '/cas';
@@ -33,7 +33,7 @@ $cas_context = '/cas';
 $cas_port = 8443;
 
 // Path to the ca chain that issued the cas server certificate
-$cas_server_ca_cert_path = 'c:/etc/cas/cas5.crt';
+$cas_server_ca_cert_path = './cas5.crt';
 
 //////////////////////////////////////////
 // Advanced Config for special purposes //
@@ -41,7 +41,7 @@ $cas_server_ca_cert_path = 'c:/etc/cas/cas5.crt';
 
 // The "real" hosts of clustered cas server that send SAML logout messages
 // Assumes the cas server is load balanced across multiple hosts
-$cas_real_hosts = array('127.0.0.1');
+$cas_real_hosts = array('10.1.3.193');
 
 // Client config for cookie hardening
 $client_domain = 'localhost';

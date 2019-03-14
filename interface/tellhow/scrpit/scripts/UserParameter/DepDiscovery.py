@@ -55,7 +55,7 @@ for i in row_3:
 result = {"data":reinn}
 #避免转成json的时候 更换其编码
 rejson = json.dumps(result,ensure_ascii=False)
-print(rejson.encode('urf8'))
+print(rejson.encode('utf8'))
 
 conn.commit()
 cursor.close()
