@@ -103,7 +103,7 @@ var PageRefresh = {
 
 function moveSubMenu(){
 	//alert("12312")
-    var lef = 240;
+    var lef = 170;
     jQuery("#mmenu .top-nav li").each(function(i){
         var o = jQuery(this);
         if(o.hasClass("selected")){

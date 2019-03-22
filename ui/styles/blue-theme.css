@@ -304,7 +304,9 @@ ul.top-nav-icons {
     background: url(../img/icon-sprite.svg) no-repeat -6px -32px; }
   /* admin*/
   ul.top-nav-icons .top-nav-profile {
-    background: url(../img/ico.png) no-repeat -815px -75px; }
+   /* background: url(../img/ico.png) no-repeat -815px -75px;*/
+    background: url(../img/ico.png) no-repeat -8px -75px;
+  }
   /*
       background: url(../img/ico.png) no-repeat -715px -75px; }
       退出图标坐标
@@ -548,7 +550,7 @@ footer, .footer {
   float: left;
   display: block;
   font-size:16px;
-  margin: 5px 140px 0px 10px; }
+  margin: 5px 70px 0px 10px; }
 
 .list-table {
   width: 100%;

@@ -47,7 +47,7 @@ if (!$data['user']['is_guest']) {
 		(new CLink(SPACE, 'profile.php'))
 			->addClass(ZBX_STYLE_TOP_NAV_PROFILE)
 			->setAttribute('title', getUserFullname($data['user'])) //getUserFullname($data['user']
-	);
+    );
 /*        ->addItem((new CList($zzz))->addClass(ZBX_STYLE_TOP_ADMIN)
     )*/
 
@@ -56,9 +56,13 @@ if (!$data['user']['is_guest']) {
 $test1=array(
     "test"=>array("test1"=>"Admin")
 );
-$test2=array(getUsername($data['user']));
+//$test2=array(gerRealUsername(getUsername($data['user'])));
+//$test3=array(gerRealUsername('admin'));
+$test2=array("当前登录用户: ".getrealUsername((getUsername($data['user']))));
 $icons->addItem(
     (new Clist($test2))
+    //(new CLink('退出', 'index.php?reconnect=1'))
+    //(new CLink($test2, 'profile.php'))
         ->addClass(ZBX_STYLE_TOP_ADMIN)
 );
 
