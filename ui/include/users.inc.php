@@ -167,19 +167,41 @@ function getUserFullname($userData) {
 }
 
 //显示中文名的思路，根据用户名查询库中的真实名称咯。
-function gerRealUsername($userName){
+function getrealUsername($userName){
     if($userName=='Admin'){
         $userName='admin';
     }
-    $dbc = mysqli_connect('localhost','root','root','portaldb');
+    $servername = "localhost";
+    $username = "root";
+    $password = "123456";
+    $database = "portaldb";
+    //$userName = "admin";
+// 创建连接
+    $conn = @mysqli_connect($servername, $username, $password,$database);
+
+// 检测连接
+    /*    if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        }
+        echo "连接成功";*/
     $query = sprintf("select user_real_name from sys_user where user_name = '%s'",$userName);
-    mysqli_set_charset($dbc, "utf8");
-    $result = mysqli_query($dbc,$query);
-    mysqli_close($dbc);
-    $row=$result->fetch_all(MYSQLI_BOTH);
-    //echo $row[0][3];
-    //echo $row[0][0];
-    return $row[0][0];
+    //echo $query;
+    mysqli_set_charset($conn, "utf8");
+    $result = mysqli_query($conn,$query);
+    mysqli_close($conn);
+    if ($result->num_rows > 0) {
+        // 输出数据
+        while($row = $result->fetch_assoc()) {
+            //echo "id: " . $row["user_real_name"];
+            return $row["user_real_name"];
+        }
+    } else {
+        echo "0";
+    }
+}
+
+function getDemo(){
+    return "demo1";
 }
 
 function getUsername($userData) {
