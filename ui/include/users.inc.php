@@ -17,7 +17,8 @@
 ** along with this program; if not, write to the Free Software
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
-
+//引入配置文件
+require_once '../config.php';
 
 /**
  * Find user theme or get default theme.
@@ -171,11 +172,7 @@ function getrealUsername($userName){
     if($userName=='Admin'){
         $userName='admin';
     }
-    $servername = "localhost";
-    $username = "root";
-    $password = "123456";
-    $database = "portaldb";
-    $port = "3306";
+
     //$userName = "admin";
 // 创建连接
     $conn = @mysqli_connect($servername, $username, $password,$database,$port);
