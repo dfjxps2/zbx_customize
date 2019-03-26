@@ -175,9 +175,10 @@ function getrealUsername($userName){
     $username = "root";
     $password = "123456";
     $database = "portaldb";
+    $port = "3306";
     //$userName = "admin";
 // 创建连接
-    $conn = @mysqli_connect($servername, $username, $password,$database);
+    $conn = @mysqli_connect($servername, $username, $password,$database,$port);
 
 // 检测连接
     /*    if (!$conn) {
