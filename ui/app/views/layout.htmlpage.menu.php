@@ -17,6 +17,8 @@
 ** along with this program; if not, write to the Free Software
 ** Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 **/
+//这里要用绝对路径，要不然会出问题
+require_once('/usr/share/zabbix/config.php');
 
 $icons = (new CList())
 	->addClass(ZBX_STYLE_TOP_NAV_ICONS)
@@ -58,7 +60,8 @@ $test1=array(
 );
 //$test2=array(gerRealUsername(getUsername($data['user'])));
 //$test3=array(gerRealUsername('admin'));
-$test2=array("当前登录用户: ".getrealUsername((getUsername($data['user']))));
+
+$test2=array("当前登录用户: ".getrealUsername((getUsername($data['user'])),$dbconfig));
 $icons->addItem(
     (new Clist($test2))
     //(new CLink('退出', 'index.php?reconnect=1'))

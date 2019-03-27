@@ -25,22 +25,24 @@ $phpcas_path = '../../source/';
 
 // Full Hostname of your CAS Server
 #$cas_host = '192.168.1.161';
-$cas_host = '192.166.162.148';
+$cas_host = '192.168.109.1';
 // Context of the CAS Server
 $cas_context = '/cas';
 
 // Port of your CAS server. Normally for a https server it's 443
-$cas_port = 17001;
+$cas_port = 8443;
 
 // Path to the ca chain that issued the cas server certificate
 $cas_server_ca_cert_path = './cas5.crt';
 
 //显示用户真实中文名字的数据库配置，这里根据实际门户地址改变即可
-$servername = "localhost";
-$username = "root";
-$password = "123456";
-$database = "portaldb";
-$port = "3306";
+$dbconfig=array(
+    'host' =>'localhost',
+    'port'=>'3306',
+    'db_user' =>'root',
+    'db_psw' =>'root',
+    'db_name' =>'portaldb'
+);
 
 //////////////////////////////////////////
 // Advanced Config for special purposes //
